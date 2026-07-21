@@ -1,15 +1,29 @@
+import { Navbar } from "@/components/navigation/navbar";
+import { Hero } from "@/components/sections/hero";
+import { FeaturedProjects } from "@/components/sections/featured-projects";
+import { About } from "@/components/sections/about";
+import { Skills } from "@/components/sections/skills";
+import { Experience } from "@/components/sections/experience";
+import { Blog } from "@/components/sections/blog";
+import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/layout/footer";
+
 export default function Home() {
   return (
-    <main>
-      <h1>Siddhant Rajan</h1>
+    <>
+<Navbar />
 
-      <p>
-        Computer Science Student at IIT Patna
-      </p>
+<main>
+  <Hero />
+  <FeaturedProjects />
+  <About />
+  <Skills />
+  <Experience />
+  <Blog />
+  <Contact />
+</main>
 
-      <p>
-        I build AI-powered products and scalable software.
-      </p>
-    </main>
+<Footer />
+    </>
   );
 }
