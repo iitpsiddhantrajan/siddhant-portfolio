@@ -8,6 +8,8 @@ import { Blog } from "@/components/sections/blog";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/layout/footer";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

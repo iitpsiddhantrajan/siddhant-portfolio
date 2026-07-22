@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { calculateReadingTime } from "@/lib/reading-time";
 
 export type UpdatePostState = {
   error?: string;
@@ -48,6 +49,7 @@ export async function updatePostAction(
 
   const cleanSummary = summary.trim();
   const cleanContent = content.trim();
+  const readingTime = calculateReadingTime(cleanContent);
 
   if (
     !cleanTitle ||
@@ -116,13 +118,14 @@ export async function updatePostAction(
       id: postId,
     },
     data: {
-      title: cleanTitle,
-      slug: cleanSlug,
-      summary: cleanSummary,
-      content: cleanContent,
-      status,
-      publishedAt,
-    },
+  title: cleanTitle,
+  slug: cleanSlug,
+  summary: cleanSummary,
+  content: cleanContent,
+  readingTime,
+  status,
+  publishedAt,
+},
   });
 
   redirect("/admin/posts");

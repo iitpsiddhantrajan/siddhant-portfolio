@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { calculateReadingTime } from "@/lib/reading-time";
 
 export type CreatePostState = {
   error?: string;
@@ -49,6 +50,7 @@ export async function createPostAction(
 
   const cleanSummary = summary.trim();
   const cleanContent = content.trim();
+  const readingTime = calculateReadingTime(cleanContent);
 
   if (
     !cleanTitle ||
@@ -89,6 +91,7 @@ export async function createPostAction(
       slug: cleanSlug,
       summary: cleanSummary,
       content: cleanContent,
+      readingTime,
       status,
       publishedAt: status === "PUBLISHED" ? new Date() : null,
     },
