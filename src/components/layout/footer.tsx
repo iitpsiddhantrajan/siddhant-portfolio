@@ -47,12 +47,19 @@ export function Footer() {
                 LinkedIn
               </a>
 
-              <Link
-                href="/"
-                className="text-sm text-neutral-500 transition-colors hover:text-white"
-              >
-                Back to top ↑
-              </Link>
+<Link
+  href="/admin"
+  className="text-sm text-neutral-600 transition-colors hover:text-white"
+>
+  Admin
+</Link>
+
+<Link
+  href="/#top"
+  className="text-sm text-neutral-500 transition-colors hover:text-white"
+>
+  Back to top ↑
+</Link>
             </div>
 
             <p className="text-xs text-neutral-600">
